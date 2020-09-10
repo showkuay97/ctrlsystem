@@ -1,0 +1,273 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <p class="text-center text-primary m-0 font-weight-bold">แจ้งซ่อมเครื่องห้องพักครู</p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 text-nowrap">
+                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                        <label>ห้องพักครู<select
+                                class="form-control form-control-sm custom-select custom-select-sm"
+                                style="width: 100px;margin-left: 20px;">
+                                <option value="" selected="">103</option>
+                                <option value="">104</option>
+                                <option value="">105</option>
+                                <option value="">106</option>
+                                <option value="">ทะเบียน</option>
+                                <option value="">ประชาสัมพันธ์</option>
+                                <option value="">Career Hub</option>
+                                <option value="">การเงิน</option>
+                            </select>&nbsp;</label></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
+                                class="invisible form-control form-control-sm" type="search"
+                                aria-controls="dataTable" placeholder="Search"></label></div>
+                </div>
+            </div>
+            <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                aria-describedby="dataTable_info">
+                <table class="table dataTable my-0" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th class="text-center">เครื่องอาจารย์</th>
+                            <th class="text-center">รูปเครื่อง</th>
+                            <th class="text-center">อาการเครื่อง</th>
+                            <th class="text-center">วันที่แจ้งซ่อม</th>
+                            <th class="text-center">วันที่รับเรื่อง</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">ธนะชัย</td>
+                            <td class="text-center"><img class="rounded mr-2" width="30" height="30"
+                                    src="/static/assets/img/pc1.png?h=019bd2cf0d699742696c1e7e995e23d9"
+                                    style="width: 35px;height: 35px;margin-right: 0px;margin-left: 0px;">
+                            </td>
+                            <td class="text-center">main board ตีลังกา</td>
+                            <td class="text-center">11/9/63</td>
+                            <td class="text-center">11/9/99</td>
+                            <td style="width: 140px;">
+                                <div class="text-center" style="width: 120px;padding-top: 0px;"><button
+                                        class="btn btn-warning" data-toggle="modal"
+                                        data-target="#exampleModal" type="button"
+                                        style="background-color: rgb(241,16,30);"><i
+                                            class="fas fa-tools"></i>&nbsp; แจ้งซ่อม</button></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="text-center"><strong><br>เครื่องอาจารย์<br><br></strong></td>
+                            <td class="text-center"><strong><br>รูปเครื่อง<br><br></strong></td>
+                            <td class="text-center"><strong><br>อาการเครื่อง<br><br></strong></td>
+                            <td class="text-center"><strong><br>วันที่แจ้งซ่อม<br><br></strong></td>
+                            <td class="text-center"><strong><br>วันที่รับเรื่อง<br><br></strong></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- Start: WebArt - Modal Open -->
+            <div id="modal-open">
+                <div class="modal fade" role="dialog" tabindex="-1" id="exampleModal"
+                    aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title"><i class="fas fa-cogs"></i>&nbsp; แจ้งซ่อม</h4>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                <div>
+                                    <fieldset></fieldset>
+                                    <fieldset>
+                                        <legend style="margin-top: 0px;padding: 0px;">
+                                            ปัญหาที่เกิดขึ้นกับเครื่องคอมพิวเตอร์</legend>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline1"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline1">เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline2"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline2">คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline3"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline3">หน้าจอคอมพิวเตอร์เปิดไม่ติด</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline4"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline4">เครื่องคอมพิวเตอร์ไม่มีโปรแกรม</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline5"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline5">เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline6"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline6">เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                <div>
+                                    <fieldset></fieldset>
+                                    <fieldset>
+                                        <legend style="margin-top: 0px;padding: 0px;">
+                                            ปัญหาที่เกิดขึ้นกับอุปกรณ์เครื่องคอมพิวเตอร์</legend>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline7"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline7">คีย์บอร์ดเสีย</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline8"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline8">เมาส์เสีย</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline9"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline9">เมาส์หาย</label></div>
+                                            </div>
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline10"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline10">คียบอร์ดหาย</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline11"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline11">โปรเจคเตอร์เสีย</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div
+                                                    class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" id="customCheckInline12"
+                                                        class="custom-control-input"><label
+                                                        class="custom-control-label"
+                                                        for="customCheckInline12">โปรเจคเตอร์ไม่ชัด</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                                <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                                <div>
+                                    <fieldset></fieldset>
+                                    <fieldset>
+                                        <legend style="margin-top: 0px;padding: 0px;">ปัญหาอื่นๆ
+                                        </legend><input type="text" style="opacity: 0.28;width: 300px;"
+                                            placeholder="ระบุปัญหา">
+                                    </fieldset>
+                                </div>
+                                <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-warning"
+                                    data-dismiss="modal" style="background-color: rgb(69,247,98);"
+                                    type="button">บันทึก</button><button class="btn btn-warning"
+                                    data-dismiss="modal" style="background-color: rgb(235,48,82);"
+                                    type="button">ยกเลิก</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End: WebArt - Modal Open -->
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
+                        Showing 1 to 10 of 27</p>
+                </div>
+                <div class="col-md-6">
+                    <nav
+                        class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link" href="#"
+                                    aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
+                                        aria-hidden="true">»</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
