@@ -15,7 +15,9 @@ def pcteacher(request):
 
 def register(request):
     return render(request,'regis.html')
+
 def Dashboard(request):
     return render(request,'Dashboard.html')
+    
 def admins(request):
     return render(request,'admin.html')
