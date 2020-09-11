@@ -1,10 +1,10 @@
 from django.db import models
 
 class repair_cmpt(models.Model):
-    class_room = models.CharField(max_length=3)
+    class_room = models.TextField(max_length=3)
     slug_repair = models.SlugField(max_length=255)
     No_cmpt = models.CharField(max_length=2)
-    img_cmpt = models.ImageField()
+    img_cmpt = models.CharField(max_length=255)
     stat_cmpt = models.CharField(max_length=255)
     detail_repair = models.CharField(max_length=255)
     date_input = models.DateField(auto_now_add=True)
