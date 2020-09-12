@@ -1,17 +1,17 @@
 from django.db import models
 
 class repair_cmpt(models.Model):
-    class_room = models.TextField(max_length=3)
-    slug_repair = models.SlugField(max_length=255)
-    No_cmpt = models.CharField(max_length=2)
-    img_cmpt = models.CharField(max_length=255)
-    stat_cmpt = models.CharField(max_length=255)
-    detail_repair = models.CharField(max_length=255)
-    date_input = models.DateField(auto_now_add=True)
-    date_output = models.DateField(auto_now_add=True)
-    user_report = models.CharField(max_length=255)
-    check_repair =models.CharField(max_length=255)
-    repair = models.CharField(max_length=255)
+    class_room = models.CharField(max_length=3) #ห้องเรียน
+    slug_repair = models.SlugField(max_length=255) #ห้องที่ซ่อม
+    No_cmpt = models.CharField(max_length=2) #หมายเลขเครื่อง
+    img_cmpt = models.CharField(max_length=255) #รุปเครื่อง
+    stat_cmpt = models.CharField(max_length=255) #สถานะเครื่อง
+    detail_repair = models.TextField() #รายละเอียดแจ้งซ่อม
+    date_input = models.DateField(auto_now_add=True) #วันรับเครื่อง
+    date_output = models.DateField(auto_now_add=True) #วันส่งเครื่อง
+    user_report = models.CharField(max_length=255) #คนที่แจ้ง
+    check_repair =models.TextField() #สาเหตุเครื่องเสีย
+    repair = models.TextField() #สรุปการซ่อม
     def __str__(self):
         return self.slug_repair
 
@@ -44,7 +44,7 @@ class report(models.Model):
     class_room = models.CharField(max_length=255)
     slug_report = models.SlugField(max_length=255)
     No_cmpt = models.CharField(max_length=2)
-    detail_repair = models.CharField(max_length=255)
-    device_repair = models.CharField(max_length=255)
+    detail_repair = models.TextField()
+    device_repair = models.TextField()
     def __str__(self):
         return self.slug_report
