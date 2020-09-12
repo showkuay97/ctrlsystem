@@ -25,4 +25,5 @@ urlpatterns = [
     path('register/',views.register),
     path('Dashboard/',views.Dashboard),
     path('admins/',views.admins),
+    # path('index/testdata',views.testdata),
 ]

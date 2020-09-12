@@ -1,5 +1,8 @@
 {% extends 'layout.html' %}
 {% block content %}
+{% for i in Pcs %}
+    <h2> i.No_cmpt </h2>
+{% endfor %}
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-header py-3">
@@ -9,7 +12,7 @@
             <div class="row">
                 <div class="col-md-6 text-nowrap">
                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                        <label>ห้องปฏิบัติการ<select
+                        <label for="select_class">ห้องปฏิบัติการ<select id="select_class"
                                 class="form-control form-control-sm custom-select custom-select-sm"
                                 style="width: 70px;margin-left: 20px;">
                                 <option value="" selected="">201</option>
@@ -20,7 +23,8 @@
                                 <option value="">206</option>
                                 <option value="">207</option>
                                 <option value="">208</option>
-                            </select>&nbsp;</label></div>
+                            </select>&nbsp;</label>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
@@ -43,16 +47,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                     {% for items in Pcs %}
                         <tr>
-                            <td class="text-center">1</td>
+                            <td class="text-center">{{items}}</td>
                             <td class="text-center"><img class="rounded mr-2" width="30" height="30"
-                                    src="/static/assets/img/pc1.png?h=019bd2cf0d699742696c1e7e995e23d9"
+                                    src="{{items.img_cmpt}}"
                                     style="width: 35px;height: 35px;margin-right: 0px;margin-left: 0px;">
                             </td>
-                            <td class="text-center">ปกติ</td>
-                            <td class="text-center">Tokyo</td>
-                            <td class="text-center">Tokyo</td>
-                            <td class="text-center">Tokyo</td>
+                            <td class="text-center">{{items.stat_cmpt}}</td>
+                            <td class="text-center">{{items.detail_repair}}</td>
+                            <td class="text-center">{{items.date_input}}</td>
+                            <td class="text-center">{{items.date_output}}</td>
                             <td style="width: 140px;">
                                 <div class="text-center" style="width: 120px;padding-top: 0px;"><button
                                         class="btn btn-warning" data-toggle="modal"
@@ -61,6 +66,7 @@
                                             class="fas fa-tools"></i>&nbsp; แจ้งซ่อม</button></div>
                             </td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                     <tfoot>
                         <tr>

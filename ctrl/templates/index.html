@@ -1,5 +1,8 @@
 {% extends 'layout.html' %}
 {% block content %}
+{% comment %} {% for i in Pcs %}
+    <h2> i </h2>
+{% endfor %} {% endcomment %}
 <div class="card shadow mb-4">
     <div class="card-header d-flex justify-content-center align-items-center">
         <h4 class="text-primary justify-content-center font-weight-bold m-0">ผังงานโสตทัศนูปกรณ์</h4>
@@ -65,4 +68,12 @@
         <!-- End: Swiper Slider Card For Blog Or Product -->
     </div>
 </div>
+
+
+{% comment %} save data {% endcomment %}
+{% comment %} <form action="testdata" method="post">
+    {% csrf_token %}
+    <input type="submit" name="submit" value="Submit">
+</form>
+<h1>{{ss}}</h1> {% endcomment %}
 {% endblock %}
