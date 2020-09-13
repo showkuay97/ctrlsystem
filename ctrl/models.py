@@ -48,3 +48,18 @@ class report(models.Model):
     device_repair = models.TextField()
     def __str__(self):
         return self.slug_report
+
+class options_std(models.Model):
+    class_room = models.CharField(max_length=3)
+    slug_class_room = models.SlugField(max_length=3)
+
+    def __str__(self):
+        return self.slug_class_room
+
+class options_tcher(models.Model):
+    room =models.CharField(max_length=255)
+    slug_room =  models.SlugField(max_length=255)
+
+    def __str__(self):
+        return self.slug_room
+    

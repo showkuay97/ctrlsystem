@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block content %}
+<h1>{{slect}}</h1>
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-header py-3">
@@ -9,18 +10,18 @@
             <div class="row">
                 <div class="col-md-6 text-nowrap">
                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                        <label for="select_class">ห้องปฏิบัติการ<select id="select_class"
+                    {% comment %} <form action="selection" method="post">
+                    {% csrf_token %} {% endcomment %}
+                        <label for="select_class">ห้องปฏิบัติการ<select name="select_class" id="select_class"
                                 class="form-control form-control-sm custom-select custom-select-sm"
                                 style="width: 70px;margin-left: 20px;">
-                                <option value="" selected="">201</option>
-                                <option value="">202</option>
-                                <option value="">203</option>
-                                <option value="">204</option>
-                                <option value="">205</option>
-                                <option value="">206</option>
-                                <option value="">207</option>
-                                <option value="">208</option>
+                                <option value="" selected="">select</option>
+                                {% for items in ops %}
+                                <option value="">{{items}}</option>
+                                {% endfor %}
                             </select>&nbsp;</label>
+                            {% comment %} <input type="submit" value="Select">
+                    </form> {% endcomment %}
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -46,7 +47,7 @@
                     <tbody>
                      {% for items in pcs %}
                         <tr>
-                            <td class="text-center">{{items}}</td>
+                            <td class="text-center">{{items.No_cmpt}}</td>
                             <td class="text-center"><img class="rounded mr-2" width="30" height="30"
                                     src="\static\assets\img\pc1.png"
                                     style="width: 35px;height: 35px;margin-right: 0px;margin-left: 0px;">
