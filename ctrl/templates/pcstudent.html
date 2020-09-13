@@ -10,18 +10,36 @@
             <div class="row">
                 <div class="col-md-6 text-nowrap">
                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                    {% comment %} <form action="selection" method="post">
-                    {% csrf_token %} {% endcomment %}
+                    <form action="{% url 'pcstudent/'%}" method="post">
+                    {% csrf_token %}
                         <label for="select_class">ห้องปฏิบัติการ<select name="select_class" id="select_class"
                                 class="form-control form-control-sm custom-select custom-select-sm"
                                 style="width: 70px;margin-left: 20px;">
-                                <option value="" selected="">select</option>
+                                
                                 {% for items in ops %}
-                                <option value="">{{items}}</option>
+                                <option value="{{items}}">{{items}}</option>
+                                {% if items == "201"%}
+                                <option value="201" selected="">201</option>
+                                {% elif items == "202" %}
+                                <option value="202" selected="">202</option>
+                                {% elif items == "203" %}
+                                <option value="203" selected="">203</option>
+                                {% elif items == "204" %}
+                                <option value="204" selected="">204</option>
+                                {% elif items == "205" %}
+                                <option value="205" selected="">205</option>
+                                {% elif items == "206" %}
+                                <option value="206" selected="">206</option>
+                                {% elif items == "207" %}
+                                <option value="207" selected="">207</option>
+                                {% elif items == "208" %}
+                                <option value="208" selected="">208</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>&nbsp;</label>
-                            {% comment %} <input type="submit" value="Select">
-                    </form> {% endcomment %}
+                            <input type="submit" value="Select">
+                            <h1>{{select}}</h1>
+                    </form> 
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -46,6 +64,7 @@
                     </thead>
                     <tbody>
                      {% for items in pcs %}
+                     
                         <tr>
                             <td class="text-center">{{items.No_cmpt}}</td>
                             <td class="text-center"><img class="rounded mr-2" width="30" height="30"

@@ -2,6 +2,7 @@ from django.http import request
 from django.shortcuts import render
 from .models import cmpt_detail,options_std,options_tcher,repair_cmpt,report
 from django.contrib.auth.models import User
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -15,8 +16,10 @@ def Login(request):
 def pcstudent(request):
     options =options_std.objects.all()
     pc = repair_cmpt.objects.all()
+    slct =request.GET("select_class")
 
-    return render(request,'pcstudent.html',{'pcs':pc,'ops':options})
+
+    return render(request,'pcstudent.html',{'pcs':pc,'ops':options,'select':slct})
 
 def pcteacher(request):
 
@@ -32,7 +35,7 @@ def admins(request):
     return render(request,'admin.html')
 
 def selection(request):
-    slct =request.Get['select_class']
+    slct =request.GET("select_class")
     # if request.method == 'POST':
     #     form = selection(request.POST)
 
