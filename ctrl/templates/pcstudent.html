@@ -1,8 +1,5 @@
 {% extends 'layout.html' %}
 {% block content %}
-{% for i in Pcs %}
-    <h2> i.No_cmpt </h2>
-{% endfor %}
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-header py-3">
@@ -47,11 +44,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                     {% for items in Pcs %}
+                     {% for items in pcs %}
                         <tr>
                             <td class="text-center">{{items}}</td>
                             <td class="text-center"><img class="rounded mr-2" width="30" height="30"
-                                    src="{{items.img_cmpt}}"
+                                    src="\static\assets\img\pc1.png"
                                     style="width: 35px;height: 35px;margin-right: 0px;margin-left: 0px;">
                             </td>
                             <td class="text-center">{{items.stat_cmpt}}</td>

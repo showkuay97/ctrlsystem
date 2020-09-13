@@ -8,18 +8,18 @@ from django.contrib.auth.models import User
 # Create your views here.
 def index(request):
     comp = report.objects.all()
-    
     return render(request,'index.html',{'comps':comp})
 
 def Login(request):
     return render(request,'Login.html')
 
 def pcstudent(request):
-    return render(request,'pcstudent.html')
+    pc = repair_cmpt.objects.all()
+    return render(request,'pcstudent.html',{'pcs':pc})
 
 def pcteacher(request):
-    pc = repair_cmpt.objects.all().filter(available=True)
-    return render(request,'pcteacher.html',{'Pcs':pc})
+
+    return render(request,'pcteacher.html')
 
 def register(request):
     return render(request,'regis.html')
