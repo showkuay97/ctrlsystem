@@ -7,8 +7,9 @@ class repair_cmpt(models.Model):
     img_cmpt = models.CharField(max_length=255) #รุปเครื่อง
     stat_cmpt = models.CharField(max_length=255) #สถานะเครื่อง
     detail_repair = models.TextField() #รายละเอียดแจ้งซ่อม
-    date_input = models.DateField(auto_now_add=True) #วันรับเครื่อง
-    date_output = models.DateField(auto_now_add=True) #วันส่งเครื่อง
+    date_report = models.DateField(auto_now=True) #วันแจ้งซ่อม
+    date_input = models.DateField(auto_now=True) #วันรับเครื่อง
+    date_output = models.DateField(auto_now=True) #วันส่งเครื่อง
     user_report = models.CharField(max_length=255) #คนที่แจ้ง
     check_repair =models.TextField() #สาเหตุเครื่องเสีย
     repair = models.TextField() #สรุปการซ่อม

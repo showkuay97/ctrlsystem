@@ -16,9 +16,7 @@ def Login(request):
 def pcstudent(request):
     options =options_std.objects.all()
     pc = repair_cmpt.objects.all()
-    slct =request.GET("select_class")
-
-
+    slct =request.POST.get('select_class')
     return render(request,'pcstudent.html',{'pcs':pc,'ops':options,'select':slct})
 
 def pcteacher(request):

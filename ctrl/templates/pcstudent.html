@@ -10,12 +10,11 @@
             <div class="row">
                 <div class="col-md-6 text-nowrap">
                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                    <form action="{% url 'pcstudent/'%}" method="post">
+                    <form action="/pcstudent" method="post">
                     {% csrf_token %}
                         <label for="select_class">ห้องปฏิบัติการ<select name="select_class" id="select_class"
                                 class="form-control form-control-sm custom-select custom-select-sm"
                                 style="width: 70px;margin-left: 20px;">
-                                
                                 {% for items in ops %}
                                 <option value="{{items}}">{{items}}</option>
                                 {% if items == "201"%}
