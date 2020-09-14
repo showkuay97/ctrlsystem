@@ -14,10 +14,13 @@ def Login(request):
     return render(request,'Login.html')
 
 def pcstudent(request):
-    options =options_std.objects.all()
-    pc = repair_cmpt.objects.all()
-    slct =request.POST.get('select_class')
-    return render(request,'pcstudent.html',{'pcs':pc,'ops':options,'select':slct})
+    # options =options_std.objects.all()
+    if request.method == 'POST':
+        res = request.POST['selections']
+        pc = repair_cmpt.objects.filter(class_room=res)
+        return render(request,'pcstudent.html',{'pcs':pc})
+    
+    return render(request,'pcstudent.html')
 
 def pcteacher(request):
 
@@ -32,15 +35,12 @@ def Dashboard(request):
 def admins(request):
     return render(request,'admin.html')
 
-def selection(request):
-    slct =request.GET("select_class")
-    # if request.method == 'POST':
-    #     form = selection(request.POST)
+# def select(request):
+#     if request.method=='POST':
+#         results = request.POST['selections']
+#         pc = repair_cmpt.objects.all()
+#         return render(request,'pcstudent.html',{'result':str(results)})
 
-    # if form.is_valid():
-    #   slct = form.cleaned_data['value']
-    return render(request,'pcstudent.html',{'select':slct})
- 
 # def testdata(request):
 #     for i in range(201,209):
 #         for j in range(1,51,1):

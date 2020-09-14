@@ -25,7 +25,7 @@ urlpatterns = [
     path('register/',views.register),
     path('Dashboard/',views.Dashboard),
     path('admins/',views.admins),
-    # path('pcstudent/selection',views.selection),
+    # path('pcstudent/select',views.select),
     
     # path('index/testdata',views.testdata),
 ]
