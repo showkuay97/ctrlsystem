@@ -14,13 +14,27 @@ def Login(request):
     return render(request,'Login.html')
 
 def pcstudent(request):
-    # options =options_std.objects.all()
+    # pc = repair_cmpt.objects.filter(class_room=201)
+
+    options =options_std.objects.all()
     if request.method == 'POST':
         res = request.POST['selections']
         pc = repair_cmpt.objects.filter(class_room=res)
-        return render(request,'pcstudent.html',{'pcs':pc})
+        print(res)
+        return render(request,'pcstudent.html',{'pcs':pc,'select':res,'ops':options})
     
     return render(request,'pcstudent.html')
+
+def r201(request):
+    pc = repair_cmpt.objects.filter(class_room=201)
+    return render(request,'r201.html',{'pcs':pc})
+
+def r202(request):
+    pc = repair_cmpt.objects.filter(class_room=202)
+    return render(request,'r201.html',{'pcs':pc})
+
+def r203(request):
+    return render(request,'r201.html',{'pcs':pc})
 
 def pcteacher(request):
 
