@@ -28,7 +28,7 @@ def pcstudent(request):
     
     return render(request,'pcstudent.html')
 
-def create_repair(forms.Form):
+def create_repair(request):
     if request.method == 'POST':
         values = request.POST['check_repair1']
         print(values)
