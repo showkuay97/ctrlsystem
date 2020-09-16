@@ -25,9 +25,7 @@ urlpatterns = [
     path('register/',views.register),
     path('Dashboard/',views.Dashboard),
     path('admins/',views.admins),
-    path('r201/',views.r201),
-    path('r202/',views.r202),
-    path('r203/',views.r203),
+    path('create_repair/',views.create_repair)
 
     # path('pcstudent/select',views.select),
     

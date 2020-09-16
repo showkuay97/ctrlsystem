@@ -62,7 +62,7 @@
                             <td style="width: 140px;">
                                 <div class="text-center" style="width: 120px;padding-top: 0px;"><button
                                         class="btn btn-warning" data-toggle="modal"
-                                        data-target="#exampleModal" type="button"
+                                        data-target="#modal_repair1" type="button"
                                         style="background-color: rgb(241,16,30);"><i
                                             class="fas fa-tools"></i>&nbsp; แจ้งซ่อม</button></div>
                             </td>
@@ -83,9 +83,10 @@
                 </table>
             </div>
             <!-- Start: WebArt - Modal Open -->
+            <form action="creat_repair">
             <div id="modal-open">
-                <div class="modal fade" role="dialog" tabindex="-1" id="exampleModal"
-                    aria-labelledby="exampleModalLabel">
+                <div class="modal fade" role="dialog" tabindex="-1" id="modal_repair1"
+                    aria-labelledby="modal_repair1Label">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -96,7 +97,6 @@
                             <div class="modal-body">
                                 <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
                                 <div>
-                                    <fieldset></fieldset>
                                     <fieldset>
                                         <legend style="margin-top: 0px;padding: 0px;">
                                             ปัญหาที่เกิดขึ้นกับเครื่องคอมพิวเตอร์</legend>
@@ -104,10 +104,10 @@
                                             <div class="col">
                                                 <div
                                                     class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline1"
+                                                    <input type="checkbox" name="check_repair" id="check_repair" value="เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า"
                                                         class="custom-control-input"><label
                                                         class="custom-control-label"
-                                                        for="customCheckInline1">เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า</label>
+                                                        for="check_repair">เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -115,10 +115,10 @@
                                             <div class="col">
                                                 <div
                                                     class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline2"
+                                                    <input type="checkbox" name="check_repair" id="check_repair2" value="คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง"
                                                         class="custom-control-input"><label
                                                         class="custom-control-label"
-                                                        for="customCheckInline2">คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง</label>
+                                                        for="check_repair2">คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,7 +126,7 @@
                                             <div class="col">
                                                 <div
                                                     class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline3"
+                                                    <input type="checkbox" name="check_repair" id="customCheckInline3" value="หน้าจอคอมพิวเตอร์เปิดไม่ติด"
                                                         class="custom-control-input"><label
                                                         class="custom-control-label"
                                                         for="customCheckInline3">หน้าจอคอมพิวเตอร์เปิดไม่ติด</label>
@@ -249,13 +249,14 @@
                             </div>
                             <div class="modal-footer"><button class="btn btn-warning"
                                     data-dismiss="modal" style="background-color: rgb(69,247,98);"
-                                    type="button">บันทึก</button><button class="btn btn-warning"
+                                    type="submit">บันทึก</button><button class="btn btn-warning"
                                     data-dismiss="modal" style="background-color: rgb(235,48,82);"
                                     type="button">ยกเลิก</button></div>
                         </div>
                     </div>
                 </div>
             </div>
+            </form>
             <!-- End: WebArt - Modal Open -->
             <div class="row">
                 <div class="col-md-6 align-self-center">
@@ -280,4 +281,7 @@
         </div>
     </div>
 </div>
+<script src="/static/assets/js/modal.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock %}

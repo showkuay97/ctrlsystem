@@ -3,6 +3,9 @@ from django.shortcuts import render
 from .models import cmpt_detail,options_std,options_tcher,repair_cmpt,report
 from django.contrib.auth.models import User
 from django.http import HttpResponse
+from django import forms
+from django.http import HttpResponseRedirect
+from .forms import create_repair
 
 
 # Create your views here.
@@ -25,16 +28,12 @@ def pcstudent(request):
     
     return render(request,'pcstudent.html')
 
-def r201(request):
-    pc = repair_cmpt.objects.filter(class_room=201)
+def create_repair(forms.Form):
+    if request.method == 'POST':
+        values = request.POST['check_repair1']
+        print(values)
     return render(request,'r201.html',{'pcs':pc})
 
-def r202(request):
-    pc = repair_cmpt.objects.filter(class_room=202)
-    return render(request,'r201.html',{'pcs':pc})
-
-def r203(request):
-    return render(request,'r201.html',{'pcs':pc})
 
 def pcteacher(request):
 
