@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django import forms
 from django.http import HttpResponseRedirect
-from .forms import create_repair
+from .forms import opsForm,repiarForm
+# from .forms import create_repair
 
 
 # Create your views here.
@@ -18,21 +19,23 @@ def Login(request):
 
 def pcstudent(request):
     # pc = repair_cmpt.objects.filter(class_room=201)
-
-    options =options_std.objects.all()
+    f = opsForm()
+    form_repair = repiarForm()
     if request.method == 'POST':
-        res = request.POST['selections']
-        pc = repair_cmpt.objects.filter(class_room=res)
-        print(res)
-        return render(request,'pcstudent.html',{'pcs':pc,'select':res,'ops':options})
+        req = opsForm(request.POST)
+        if req.is_valid():
+            res = req.cleaned_data['field']
+            pc = repair_cmpt.objects.filter(class_room=res)
+            print(res)
+            return render(request,'pcstudent.html',{'pcs':pc,'select':res,'form':f,'F_repair':form_repair})
     
-    return render(request,'pcstudent.html')
+    return render(request,'pcstudent.html',{'form':f})
 
-def create_repair(request):
-    if request.method == 'POST':
-        values = request.POST['check_repair1']
-        print(values)
-    return render(request,'r201.html',{'pcs':pc})
+# def create_repair(request):
+#     if request.method == 'POST':
+#         values = request.POST['check_repair1']
+#         print(values)
+#     return render(request,'r201.html',{'pcs':pc})
 
 
 def pcteacher(request):

@@ -11,7 +11,8 @@
                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                     <form action="/pcstudent/" method="POST">
                     {% csrf_token %}
-                        <label>ห้องปฏิบัติการ<select name="selections"
+                        {{form}}
+                        <!-- <label>ห้องปฏิบัติการ<select name="selections"
                                 class="form-control form-control-sm custom-select custom-select-sm"
                                 style="width: 70px;margin-left: 20px;">  
                                 <option value="201">201</option>
@@ -22,7 +23,7 @@
                                 <option value="206">206</option>
                                 <option value="207">207</option>
                                 <option value="208">208</option> 
-                            </select>&nbsp;</label>
+                            </select>&nbsp;</label> -->
                             <input type="submit" value="Select">
                     </form> 
                     </div>
@@ -99,7 +100,8 @@
                                     <fieldset>
                                         <legend style="margin-top: 0px;padding: 0px;">
                                             ปัญหาที่เกิดขึ้นกับเครื่องคอมพิวเตอร์</legend>
-                                        <div class="row">
+                                            {{F_repair}}
+                                        <!-- <div class="row">
                                             <div class="col">
                                                 <div
                                                     class="custom-control custom-checkbox custom-control-inline">
@@ -164,7 +166,7 @@
                                                         for="customCheckInline6">เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้</label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </fieldset>
                                 </div>
                                 <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->

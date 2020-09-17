@@ -63,4 +63,4 @@ class options_tcher(models.Model):
 
     def __str__(self):
         return self.slug_room
-    
+

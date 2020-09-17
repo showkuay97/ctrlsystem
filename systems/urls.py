@@ -25,7 +25,7 @@ urlpatterns = [
     path('register/',views.register),
     path('Dashboard/',views.Dashboard),
     path('admins/',views.admins),
-    path('create_repair/',views.create_repair)
+    # path('create_repair/',views.create_repair)
 
     # path('pcstudent/select',views.select),
     
