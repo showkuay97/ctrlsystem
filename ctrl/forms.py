@@ -1,4 +1,7 @@
+from os import stat
 from django import forms
+from django.forms import widgets
+from django.forms.widgets import Select
 # class create_repair(forms.Form):
 #     id_lb =forms.CharField(max_length=255)
 #     subject = forms.CheckboxInput()
@@ -19,20 +22,26 @@ class opsForm(forms.Form):
         label_suffix='   ',
         choices=text,
     )
+    
 class repiarForm(forms.Form):
-    text=[
-        ('เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า','เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า'),
-        ('คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง','คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง'),
-        ('หน้าจอคอมพิวเตอร์เปิดไม่ติด','หน้าจอคอมพิวเตอร์เปิดไม่ติด'),
-        ('เครื่องคอมพิวเตอร์ไม่มีโปรแกรม','เครื่องคอมพิวเตอร์ไม่มีโปรแกรม'),
-        ('เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์','เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์'),
-        ('เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้','เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้'),
-    ]
-    field = forms.BooleanField(
-        
-        check_test=text,
+    field1 = forms.BooleanField(
+        required=False,
+        label='เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า',
+        initial=False,
+        widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
     )
-
+    field2 = forms.BooleanField(
+        required=False,
+        label='หน้าจอคอมพิวเตอร์เปิดไม่ติด',
+        initial=False,
+        widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
+    )
+    field3 = forms.BooleanField(
+        required=False,
+        label='คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง',
+        initial=False,
+        widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
+    )
 
     # https://docs.djangoproject.com/en/3.1/topics/forms/
     # https://pypi.org/project/django-bootstrap-modal-forms/2.0.0/
