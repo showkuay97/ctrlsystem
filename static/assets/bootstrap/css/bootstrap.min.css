@@ -5236,6 +5236,9 @@ a.close.disabled {
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
 }
 .modal-body {
   position: relative;
@@ -10171,3 +10174,4 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+

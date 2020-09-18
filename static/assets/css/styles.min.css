@@ -1903,3 +1903,15 @@ button.swiper-pagination-bullet {
   position: absolute;
   z-index: 10;
 }
+.form-select{
+  width: 60px;
+  height: 25px;
+  border: 1px solid #333;
+}
+.legend-title{
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+

@@ -1,12 +1,16 @@
-$(document).ready(function() {
-    $("button").click(function() {
-      var favorite = [];
-      $.each($("input[name='check_repair']:checked"), function() {
-        favorite.push($(this).val());
-      });
-      $('#modal_repair1').modal('show').on('shown.bs.modal', function() {
-        var str = $("#check_repair").html("My favourite sports are: " + favorite.join(", "));
-        console.log(str);
-      });
-    });
-  });
+function getvalues(){
+  var selected =new Array();
+  var chbox = document.getElementById("checkbox_field");
+  var selectbox  = chbox.getElementsByTagName("input");
+  for(var i=0;i<selectbox.length;i++){
+    if(selectbox[i].checked){
+      selected.push(selectbox[i].value);
+    }
+    
+  }
+  if(selected.length>0){
+    document.getElementById("showtext").innerHTML=selected;
+    console.log(selected);
+  }
+  console.log(selected);
+}

@@ -18,9 +18,10 @@ class opsForm(forms.Form):
         ('208',208),
     ]
     field = forms.ChoiceField(
-        label='ห้องปฏิบัติการ  ',
+        label='ห้องปฏิบัติการ',
         label_suffix='   ',
         choices=text,
+        widget=forms.Select({'class':'form-select'}),
     )
     
 class repiarForm(forms.Form):
@@ -28,7 +29,7 @@ class repiarForm(forms.Form):
         required=False,
         label='เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า',
         initial=False,
-        widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
+        widget=forms.CheckboxInput(attrs={'id':'lb_repair01',})
     )
     field2 = forms.BooleanField(
         required=False,

@@ -18,7 +18,7 @@ def Login(request):
     return render(request,'Login.html')
 
 def pcstudent(request):
-    # pc = repair_cmpt.objects.filter(class_room=201)
+    pc = repair_cmpt.objects.all()
     f = opsForm()
     form_repair = repiarForm()
     if request.method == 'POST':
@@ -29,7 +29,7 @@ def pcstudent(request):
             print(res)
             return render(request,'pcstudent.html',{'pcs':pc,'select':res,'form':f,'F_repair':form_repair})
     
-    return render(request,'pcstudent.html',{'form':f})
+    return render(request,'pcstudent.html',{'form':f,'pcs':pc,'F_repair':form_repair})
 
 # def create_repair(request):
 #     if request.method == 'POST':
