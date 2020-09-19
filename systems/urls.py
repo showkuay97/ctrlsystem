@@ -25,7 +25,10 @@ urlpatterns = [
     path('register/',views.register),
     path('Dashboard/',views.Dashboard),
     path('admins/',views.admins),
-    # path('create_repair/',views.create_repair)
+    path('pcstudent/create_repair/',views.create_repair),
+    # path('test/',views.test),
+
+
 
     # path('pcstudent/select',views.select),
     

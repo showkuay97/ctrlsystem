@@ -1,11 +1,12 @@
 from django.http import request
 from django.shortcuts import render
+from django.urls.base import is_valid_path
 from .models import cmpt_detail,options_std,options_tcher,repair_cmpt,report
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django import forms
 from django.http import HttpResponseRedirect
-from .forms import opsForm,repiarForm
+from .forms import opsForm,repiarForm,input_detail
 # from .forms import create_repair
 
 
@@ -20,23 +21,28 @@ def Login(request):
 def pcstudent(request):
     pc = repair_cmpt.objects.all()
     f = opsForm()
+    input = input_detail()
     form_repair = repiarForm()
     if request.method == 'POST':
+        rq = input_detail(request.POST)
         req = opsForm(request.POST)
+        if rq.is_valid():
+            result = rq.cleaned_data['textinput']
+            print(result)
+            return render(request,'pcstudent.html')
         if req.is_valid():
             res = req.cleaned_data['field']
             pc = repair_cmpt.objects.filter(class_room=res)
             print(res)
-            return render(request,'pcstudent.html',{'pcs':pc,'select':res,'form':f,'F_repair':form_repair})
+            return render(request,'pcstudent.html',{'pcs':pc,'select':res,'form':f,'F_repair':form_repair,'txt':input})
     
-    return render(request,'pcstudent.html',{'form':f,'pcs':pc,'F_repair':form_repair})
+    return render(request,'pcstudent.html',{'form':f,'F_repair':form_repair,'txt':input})
 
-# def create_repair(request):
-#     if request.method == 'POST':
-#         values = request.POST['check_repair1']
-#         print(values)
-#     return render(request,'r201.html',{'pcs':pc})
-
+def create_repair(request):
+    if request.method == 'POST':
+        values = request.POST['textinput']
+        print(values)
+    return render(request,'pcstudent.html')
 
 def pcteacher(request):
 
@@ -50,6 +56,12 @@ def Dashboard(request):
     
 def admins(request):
     return render(request,'admin.html')
+
+def test(request):
+    input = input_detail()
+    
+    return render(request,'testmodal.html',{'txt':input})
+
 
 # def select(request):
 #     if request.method=='POST':

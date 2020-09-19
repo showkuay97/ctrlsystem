@@ -1,7 +1,7 @@
 from os import stat
 from django import forms
 from django.forms import widgets
-from django.forms.widgets import Select
+from django.forms.widgets import HiddenInput, Select
 # class create_repair(forms.Form):
 #     id_lb =forms.CharField(max_length=255)
 #     subject = forms.CheckboxInput()
@@ -18,7 +18,7 @@ class opsForm(forms.Form):
         ('208',208),
     ]
     field = forms.ChoiceField(
-        label='ห้องปฏิบัติการ',
+        label='',
         label_suffix='   ',
         choices=text,
         widget=forms.Select({'class':'form-select'}),
@@ -43,6 +43,10 @@ class repiarForm(forms.Form):
         initial=False,
         widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
     )
+
+class input_detail(forms.Form):
+    textinput = forms.CharField()
+
 
     # https://docs.djangoproject.com/en/3.1/topics/forms/
     # https://pypi.org/project/django-bootstrap-modal-forms/2.0.0/
