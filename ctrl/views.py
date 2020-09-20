@@ -27,7 +27,7 @@ def pcstudent(request):
         rq = input_detail(request.POST)
         req = opsForm(request.POST)
         if rq.is_valid():
-            result = rq.cleaned_data['textinput']
+            result = rq.cleaned_data['check_repair']
             print(result)
             return render(request,'pcstudent.html')
         if req.is_valid():
@@ -39,7 +39,7 @@ def pcstudent(request):
 
 def create_repair(request):
     if request.method == 'POST':
-        values = request.POST['textinput']
+        values = request.POST['check_repair']
         print(values)
     return render(request,'pcstudent.html')
 
