@@ -64,10 +64,100 @@
                             <td class="text-center">{{items.date_input}}</td>
                             <td class="text-center">{{items.date_output}}</td>
                             <td style="width: 140px;">
-                                <div class="text-center" style="width: 120px;padding-top: 0px;"><button
+                                <!-- Button trigger modal -->
+                                <form action="/create_repair/" method="post">
+                            {% csrf_token %}
+                                    
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    แจ้งซ่อม
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div id="checkbox_field">
+                <fieldset>
+                    <legend class="legend-title"
+                        style="margin-top: 0px;padding: 0px 0px; padding-bottom: 10px;font-size: 18px;color: #5C5959;font-weight: bold;">
+                        ปัญหาที่เกิดขึ้นกับเครื่องคอมพิวเตอร์</legend>
+                    <div class="row">
+                        <div class="col">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" name="check_repair" id="check_repair2"
+                                    value="คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง"
+                                    class="custom-control-input"><label
+                                    class="custom-control-label"
+                                    for="check_repair2">คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" name="check_repair"
+                                    id="customCheckInline3" value="หน้าจอคอมพิวเตอร์เปิดไม่ติด"
+                                    class="custom-control-input"><label
+                                    class="custom-control-label"
+                                    for="customCheckInline3">หน้าจอคอมพิวเตอร์เปิดไม่ติด</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" id="customCheckInline4"
+                                    class="custom-control-input"
+                                    value="เครื่องคอมพิวเตอร์ไม่มีโปรแกรม"><label
+                                    class="custom-control-label"
+                                    for="customCheckInline4">เครื่องคอมพิวเตอร์ไม่มีโปรแกรม</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" id="customCheckInline5"
+                                    value="เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์"
+                                    class="custom-control-input"><label
+                                    class="custom-control-label"
+                                    for="customCheckInline5">เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" id="customCheckInline6"
+                                    value="เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้"
+                                    class="custom-control-input"><label
+                                    class="custom-control-label"
+                                    for="customCheckInline6">เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้</label>
+                            </div>
+                        </div>
+                    </div> 
+                </fieldset>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+                                <!-- <div class="text-center" style="width: 120px;padding-top: 0px;"><button
                                         class="btn btn-warning" data-toggle="modal" data-target="#modal_repair1"
                                         type="button" style="background-color: rgb(241,16,30);"><i
-                                            class="fas fa-tools"></i>&nbsp; แจ้งซ่อม</button></div>
+                                            class="fas fa-tools"></i>&nbsp; แจ้งซ่อม</button></div> -->
                             </td>
                         </tr>
                         {% endfor %}
@@ -85,6 +175,7 @@
                     </tfoot>
                 </table>
             </div>
+            {% comment %}
 <form action="/pcstudent/create_repair/" method="POST">
             {% csrf_token %}
             <!-- Start: WebArt - Modal Open -->
@@ -108,19 +199,7 @@
                                             <legend class="legend-title"
                                                 style="margin-top: 0px;padding: 0px 0px; padding-bottom: 10px;font-size: 18px;color: #5C5959;font-weight: bold;">
                                                 ปัญหาที่เกิดขึ้นกับเครื่องคอมพิวเตอร์</legend>
-                                        <div class="row">
-                                            <div class="col">
-                                                {% render_field F_repair %}
-                                                <!-- {{F_repair.field1}} -->
-                                                {% comment %}
-                                                
-                                                
-                                                <!-- {% render_field F_repair.field1 type="checkbox"%} -->
-                                            <!-- {% load widget_tweaks %}
-                                                    {% render_field F_repair type="checkbox" %} -->{% endcomment %}
-                                            </div>
-                                        </div>
-                                            {% comment %} <div class="row">
+                                            <div class="row">
                                                 <div class="col">
                                                     <div class="custom-control custom-checkbox custom-control-inline">
                                                         <input type="checkbox" name="check_repair" id="check_repair2"
@@ -174,7 +253,7 @@
                                                             for="customCheckInline6">เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้</label>
                                                     </div>
                                                 </div>
-                                            </div> {% endcomment %}
+                                            </div> 
                                         </fieldset>
                                     </div>
                                     <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
@@ -269,6 +348,7 @@
             </div>
             </form>
             <!-- End: WebArt - Modal Open -->
+            {% endcomment %}
             <div class="row">
                 <div class="col-md-6 align-self-center">
                     <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
