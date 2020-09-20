@@ -86,7 +86,7 @@
                 </table>
             </div>
 <form action="/pcstudent/create_repair/" method="POST">
-                            {% csrf_token %}
+            {% csrf_token %}
             <!-- Start: WebArt - Modal Open -->
             <div id="modal-open">
                 <div class="modal fade" role="dialog" tabindex="-1" id="modal_repair1"
@@ -101,6 +101,7 @@
                                             aria-hidden="true">×</span></button>
                                 </div>
                                 <div class="modal-body">
+                                    
                                     <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
                                     <div id="checkbox_field">
                                         <fieldset>
@@ -109,7 +110,14 @@
                                                 ปัญหาที่เกิดขึ้นกับเครื่องคอมพิวเตอร์</legend>
                                         <div class="row">
                                             <div class="col">
-                                                    {% render_field F_repair %}
+                                                {% render_field F_repair %}
+                                                <!-- {{F_repair.field1}} -->
+                                                {% comment %}
+                                                
+                                                
+                                                <!-- {% render_field F_repair.field1 type="checkbox"%} -->
+                                            <!-- {% load widget_tweaks %}
+                                                    {% render_field F_repair type="checkbox" %} -->{% endcomment %}
                                             </div>
                                         </div>
                                             {% comment %} <div class="row">
