@@ -25,24 +25,34 @@ class opsForm(forms.Form):
     )
     
 class repiarForm(forms.Form):
-    field1 = forms.BooleanField(
-        required=False,
-        label='เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า',
-        initial=False,
-        widget=forms.CheckboxInput(attrs={'id':'lb_repair01',})
-    )
-    field2 = forms.BooleanField(
-        required=False,
-        label='หน้าจอคอมพิวเตอร์เปิดไม่ติด',
-        initial=False,
-        widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
-    )
-    field3 = forms.BooleanField(
-        required=False,
-        label='คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง',
-        initial=False,
-        widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
-    )
+    text  = {
+        'field1','field2','field3','field4','field5',
+    }
+    widgets={
+        'field1': forms.CheckboxInput(attrs={'id':'lb_repair01',}),
+        'field2': forms.CheckboxInput(attrs={'id':'lb_repair02',}),
+        'field3': forms.CheckboxInput(attrs={'id':'lb_repair03',}),
+        'field4': forms.CheckboxInput(attrs={'id':'lb_repair04',}),
+        'field5': forms.CheckboxInput(attrs={'id':'lb_repair05',}),
+    }
+    # field1 = forms.BooleanField(
+    #     required=False,
+    #     label='เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า',
+    #     initial=False,
+    #     widget=forms.CheckboxInput(attrs={'id':'lb_repair01',})
+    # )
+    # field2 = forms.BooleanField(
+    #     required=False,
+    #     label='หน้าจอคอมพิวเตอร์เปิดไม่ติด',
+    #     initial=False,
+    #     widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
+    # )
+    # field3 = forms.BooleanField(
+    #     required=False,
+    #     label='คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง',
+    #     initial=False,
+    #     widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
+    # )
 
 class input_detail(forms.Form):
     textinput = forms.CharField()
