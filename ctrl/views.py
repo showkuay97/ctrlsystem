@@ -38,9 +38,26 @@ def pcstudent(request):
     return render(request,'pcstudent.html',{'form':f,'F_repair':form_repair,'txt':input})
 
 def create_repair(request):
+    
     if request.method == 'POST':
-        values = request.POST['check_repair']
-        print(values)
+        pc_repair = request.POST.getlist('check_repair')
+        divice_repair = request.POST.getlist('de_check_repair')
+        other_repair = request.POST['other_repair']
+        # if pc_repair=='' or '[]' and divice_repair == '' or '[]':
+        #     post_err ="not found"
+        #     return render(request,'pcstudent.html',{'err':post_err})
+        # else :
+        if pc_repair is '[]' :
+            post_err ="not found"
+            return render(request,'pcstudent.html',{'err':post_err})
+        else:
+            print(pc_repair)
+            
+        print(divice_repair)
+        print(other_repair)
+        # print(type(values))
+        
+        
     return render(request,'pcstudent.html')
 
 def pcteacher(request):

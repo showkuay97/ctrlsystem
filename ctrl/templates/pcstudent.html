@@ -1,4 +1,5 @@
 {% extends 'layout.html' %} {% load widget_tweaks %} {% block content %}
+{{err}}
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-header py-3">
@@ -87,35 +88,35 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" name="check_repair" id="check_repair2" value="คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง" class="custom-control-input"><label class="custom-control-label" for="check_repair2">คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair" value="คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง" class="custom-control-input"><label class="custom-control-label" for="check_repair">คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" name="check_repair" id="customCheckInline3" value="หน้าจอคอมพิวเตอร์เปิดไม่ติด" class="custom-control-input"><label class="custom-control-label" for="customCheckInline3">หน้าจอคอมพิวเตอร์เปิดไม่ติด</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair1" value="หน้าจอคอมพิวเตอร์เปิดไม่ติด" class="custom-control-input"><label class="custom-control-label" for="check_repair1">หน้าจอคอมพิวเตอร์เปิดไม่ติด</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline4" class="custom-control-input" value="เครื่องคอมพิวเตอร์ไม่มีโปรแกรม"><label class="custom-control-label" for="customCheckInline4">เครื่องคอมพิวเตอร์ไม่มีโปรแกรม</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair2" class="custom-control-input" value="เครื่องคอมพิวเตอร์ไม่มีโปรแกรม"><label class="custom-control-label" for="check_repair2">เครื่องคอมพิวเตอร์ไม่มีโปรแกรม</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline5" value="เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์" class="custom-control-input"><label class="custom-control-label" for="customCheckInline5">เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair3" value="เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์" class="custom-control-input"><label class="custom-control-label" for="check_repair3">เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline6" value="เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้" class="custom-control-input"><label class="custom-control-label" for="customCheckInline6">เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair4" value="เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้" class="custom-control-input"><label class="custom-control-label" for="check_repair4">เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,34 +131,34 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline7" value="คีย์บอร์ดเสีย" class="custom-control-input"><label class="custom-control-label" for="customCheckInline7">คีย์บอร์ดเสีย</label>
+                                                    <input type="checkbox" name="de_check_repair" id="de_check_repair" value="คีย์บอร์ดเสีย" class="custom-control-input"><label class="custom-control-label" for="de_check_repair">คีย์บอร์ดเสีย</label>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline8" value="เมาส์เสีย" class="custom-control-input"><label class="custom-control-label" for="customCheckInline8">เมาส์เสีย</label></div>
+                                                    <input type="checkbox" name="de_check_repair" id="de_check_repair1" value="เมาส์เสีย" class="custom-control-input"><label class="custom-control-label" for="de_check_repair1">เมาส์เสีย</label></div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline9" value="เมาส์หาย" class="custom-control-input"><label class="custom-control-label" for="customCheckInline9">เมาส์หาย</label></div>
+                                                    <input type="checkbox" name="de_check_repair" id="de_check_repair2" value="เมาส์หาย" class="custom-control-input"><label class="custom-control-label" for="de_check_repair2">เมาส์หาย</label></div>
                                             </div>
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline10" value="คียบอร์ดหาย" class="custom-control-input"><label class="custom-control-label" for="customCheckInline10">คียบอร์ดหาย</label>
+                                                    <input type="checkbox" name="de_check_repair" id="de_check_repair3" value="คียบอร์ดหาย" class="custom-control-input"><label class="custom-control-label" for="de_check_repair3">คียบอร์ดหาย</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline11" value="โปรเจคเตอร์เสีย" class="custom-control-input"><label class="custom-control-label" for="customCheckInline11">โปรเจคเตอร์เสีย</label>
+                                                    <input type="checkbox" name="de_check_repair" id="de_check_repair4" value="โปรเจคเตอร์เสีย" class="custom-control-input"><label class="custom-control-label" for="de_check_repair4">โปรเจคเตอร์เสีย</label>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline12" value="โปรเจคเตอร์ไม่ชัด" class="custom-control-input"><label class="custom-control-label" for="customCheckInline12">โปรเจคเตอร์ไม่ชัด</label>
+                                                    <input type="checkbox" name="de_check_repair" id="de_check_repair5" value="โปรเจคเตอร์ไม่ชัด" class="custom-control-input"><label class="custom-control-label" for="de_check_repair5">โปรเจคเตอร์ไม่ชัด</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -168,7 +169,7 @@
                                 <div>
                                     <fieldset>
                                         <legend style="margin-top: 0px;padding: 0px;">ปัญหาอื่นๆ
-                                        </legend><input type="text" style="opacity: 0.28;width: 300px;" placeholder="ระบุปัญหา">
+                                        </legend><input type="text" name="other_repair" style="opacity: 0.28;width: 300px;" placeholder="ระบุปัญหา">
                                     </fieldset>
                                 </div>
                                 <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
@@ -220,35 +221,35 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" name="check_repair" id="check_repair2" value="คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง" class="custom-control-input"><label class="custom-control-label" for="check_repair2">คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair" value="คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง" class="custom-control-input"><label class="custom-control-label" for="check_repair">คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" name="check_repair" id="customCheckInline3" value="หน้าจอคอมพิวเตอร์เปิดไม่ติด" class="custom-control-input"><label class="custom-control-label" for="customCheckInline3">หน้าจอคอมพิวเตอร์เปิดไม่ติด</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair1" value="หน้าจอคอมพิวเตอร์เปิดไม่ติด" class="custom-control-input"><label class="custom-control-label" for="check_repair1">หน้าจอคอมพิวเตอร์เปิดไม่ติด</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline4" class="custom-control-input" value="เครื่องคอมพิวเตอร์ไม่มีโปรแกรม"><label class="custom-control-label" for="customCheckInline4">เครื่องคอมพิวเตอร์ไม่มีโปรแกรม</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair2" value="เครื่องคอมพิวเตอร์ไม่มีโปรแกรม" class="custom-control-input" ><label class="custom-control-label" for="check_repair2">เครื่องคอมพิวเตอร์ไม่มีโปรแกรม</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline5" value="เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์" class="custom-control-input"><label class="custom-control-label" for="customCheckInline5">เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair3" value="เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์" class="custom-control-input"><label class="custom-control-label" for="check_repair3">เครื่องคอมพิวเตอร์เปิดขึ้นมาแล้วไม่เข้าวินโดว์</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                                    <input type="checkbox" id="customCheckInline6" value="เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้" class="custom-control-input"><label class="custom-control-label" for="customCheckInline6">เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้</label>
+                                                    <input type="checkbox" name="check_repair" id="check_repair4" value="เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้" class="custom-control-input"><label class="custom-control-label" for="check_repair4">เครื่องคอมพิวเตอร์โปรแกรมใช้งานไม่ได้</label>
                                                 </div>
                                             </div>
                                         </div>
