@@ -43,18 +43,14 @@ def create_repair(request):
         pc_repair = request.POST.getlist('check_repair')
         divice_repair = request.POST.getlist('de_check_repair')
         other_repair = request.POST['other_repair']
-        # if pc_repair=='' or '[]' and divice_repair == '' or '[]':
-        #     post_err ="not found"
-        #     return render(request,'pcstudent.html',{'err':post_err})
-        # else :
-        if pc_repair is '[]' :
+        if pc_repair == [] and divice_repair == [] and other_repair == '':
             post_err ="not found"
             return render(request,'pcstudent.html',{'err':post_err})
         else:
             print(pc_repair)
-            
-        print(divice_repair)
-        print(other_repair)
+            print(divice_repair)
+            print(other_repair)
+      
         # print(type(values))
         
         
