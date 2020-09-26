@@ -1,7 +1,7 @@
 from django.db import models
 
 class repair_cmpt(models.Model):
-    class_room = models.CharField(max_length=3) #ห้องเรียน
+    class_room = models.CharField(max_length=255) #ห้องเรียน
     name_aj = models.CharField(max_length=255)
     slug_repair = models.SlugField(max_length=255) #ห้องที่ซ่อม
     No_cmpt = models.CharField(max_length=2) #หมายเลขเครื่อง

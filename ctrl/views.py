@@ -23,16 +23,14 @@ def Login(request):
 def pcstudent(request):
     pc = repair_cmpt.objects.all()
     f = opsForm()
-    form_repair = repiarForm()
-    # for i in pc:
-    #     print(i.id)
+
     if request.method == 'POST':
-        rq = input_detail(request.POST)
+        # rq = input_detail(request.POST)
         req = opsForm(request.POST)
-        if rq.is_valid():
-            result = rq.cleaned_data['check_repair']
-            print(result)
-            return render(request,'pcstudent.html')
+        # if rq.is_valid():
+        #     result = rq.cleaned_data['check_repair']
+        #     print(result)
+        #     return redirect('/pcstudent/')
         if req.is_valid():
             res = req.cleaned_data['field']
             pc = repair_cmpt.objects.filter(class_room=res).order_by('id')
@@ -41,12 +39,10 @@ def pcstudent(request):
                 'pcs':pc,
                 'select':res,
                 'form':f,
-                'F_repair':form_repair})
-    return render(request,'pcstudent.html',{'form':f,'F_repair':form_repair})
+            })
+    return render(request,'pcstudent.html',{'form':f})
 
 def create_repair(request,id):
-    # messages.add_message(request,messages.success,'ส่งเรื่องแจ้งแล้ว')
-    # messages.add_message(request,messages.error,'กรุณากรอกข้อมูลอาการของคอมพิวเตอร์')
     if request.method == 'POST':
         pc_repair = request.POST.getlist('check_repair')
         divice_repair = request.POST.getlist('de_check_repair')
@@ -79,9 +75,53 @@ def create_repair(request,id):
             return redirect('/pcstudent/')
     return redirect('/pcstudent/')
 
-def pcteacher(request):
+def create_repairaj(request,id):
+    if request.method == 'POST':
+        pc_repair = request.POST.getlist('check_repair')
+        divice_repair = request.POST.getlist('de_check_repair')
+        other_repair = request.POST['other_repair']
+        # id_pc = request.POST['get_id_cmpt']
+        # btn_id = request.POST['btnid']
+        if pc_repair == [] and divice_repair == [] and other_repair.strip() =='':
+            messages.error(request, 'กรุณาระบุอาการของคอมพิวเตอร์!')
+            # return render(request,'repair.html',{'err':post_err})
+            return redirect('/repairaj/%d'%id)
+        else:
+            # messages.success(request, 'Your password was updated successfully!')
+            # print(id_pc)
+            err_pc = ""
+            for i in pc_repair:
+                err_pc+=i+","
+            
+            for j in divice_repair:
+                err_pc+=j+","
+            err_pc+=other_repair
+            print(err_pc)
+            # print("btn "+btn_id)
+            print("id = "+str(id))
+            date_re = datetime.now()
+            cmpt = repair_cmpt.objects.get(id=id)
+            cmpt.detail_repair = err_pc
+            cmpt.date_report = date_re.strftime("%d/%m/%Y  %H:%M:%S")
+            # print(date_re.strftime("%d/%m/%Y"))
+            cmpt.save()
+            return redirect('/pcteacher/')
+    return redirect('/pcteacher/')
 
-    return render(request,'pcteacher.html')
+def pcteacher(request):
+    pc = repair_cmpt.objects.all()
+    f = repiarForm(request.POST)
+    if request.method == 'POST':
+        if f.is_valid():
+            res = f.cleaned_data['field']
+            pc = repair_cmpt.objects.filter(class_room=res).order_by('id')
+            print(res)
+            return render(request,'pcteacher.html',{
+                'pcs':pc,
+                'select':res,
+                'form':f,
+            })
+    return render(request,'pcteacher.html',{'form':f,})
 
 def register(request):
     return render(request,'regis.html')
@@ -108,6 +148,11 @@ def repair(request,id):
     ids = repair_cmpt.objects.get(id=id)
     print(id)
     return render(request,'repair.html',{'ids':ids,})
+
+def repairaj(request,id):
+    ids = repair_cmpt.objects.get(id=id)
+    print(id)
+    return render(request,'repairaj.html',{'ids':ids,})
 
 # def select(request):
 #     if request.method=='POST':

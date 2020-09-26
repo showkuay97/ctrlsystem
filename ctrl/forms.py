@@ -21,35 +21,32 @@ class opsForm(forms.Form):
         ('208',208),
     ]
     field = forms.ChoiceField(
+        required=False,
         label='',
         label_suffix='   ',
         choices=text,
-        # widget=forms.Select(attrs={'class':'custom-select select-box'}),
+        widget=forms.Select(attrs={'class':'form-control','style':'text-align:center;width:60px;height:28px;padding:0px 7px;font-size:15px;margin-top:-5px'}),
     )
-    field.widget.attrs.update({'class':'form-control','style':'text-align:center;width:60px;height:28px;padding:0px 7px;font-size:15px;margin-top:-5px'})
+    # field.widget.attrs.update({'class':'form-control','style':'text-align:center;width:60px;height:28px;padding:0px 7px;font-size:15px;margin-top:-5px'})
     
 class repiarForm(forms.Form):
-    field1 = forms.BooleanField(
+    text = [
+        ('103',103),
+        ('104',104),
+        ('105',105),
+        ('106',106),
+        ('ทะเบียน',"ทะเบียน"),
+        ('ประชาสัมพันธ์',"ประชาสัมพันธ์"),
+        ('CareerHub',"CareerHub"),
+        ('การเงิน',"การเงิน"),
+    ]
+    field = forms.ChoiceField(
         required=False,
-        label='บริการล้างสี + ดูดฝุ่น',
-        initial=False,
-        widget=forms.CheckboxInput(attrs={'id':'lb_repair01',})
+        label='',
+        label_suffix='   ',
+        choices=text,
+        widget=forms.Select(attrs={'class':'form-control','style':'text-align:center;width:110px;height:28px;padding:0px 7px;font-size:15px;margin-top:-5px'}),
     )
-    field2 = forms.BooleanField(
-        required=False,
-        label='บริการเคลือบสีด้วย Quick Wax',
-        initial=False,
-        widget=forms.CheckboxInput(attrs={'id':'lb_repair01',})
-    )
-    field3 = forms.BooleanField(
-        required=False,
-        label='บริการเคลือบแก้ว',
-        initial=False,
-        widget=forms.CheckboxInput(attrs={'id':'lb_repair01',})
-    )
-
-
-
 
 
 class input_detail(forms.Form):
