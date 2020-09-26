@@ -2,14 +2,15 @@ from django.db import models
 
 class repair_cmpt(models.Model):
     class_room = models.CharField(max_length=3) #ห้องเรียน
+    name_aj = models.CharField(max_length=255)
     slug_repair = models.SlugField(max_length=255) #ห้องที่ซ่อม
     No_cmpt = models.CharField(max_length=2) #หมายเลขเครื่อง
     img_cmpt = models.CharField(max_length=255) #รุปเครื่อง
     stat_cmpt = models.CharField(max_length=255) #สถานะเครื่อง
     detail_repair = models.TextField() #รายละเอียดแจ้งซ่อม
-    date_report = models.DateField(auto_now=True) #วันแจ้งซ่อม
-    date_input = models.DateField(auto_now=True) #วันรับเครื่อง
-    date_output = models.DateField(auto_now=True) #วันส่งเครื่อง
+    date_report = models.CharField(max_length=255) #วันแจ้งซ่อม
+    date_input = models.CharField(max_length=255) #วันรับเครื่อง
+    date_output = models.CharField(max_length=255) #วันส่งเครื่อง
     user_report = models.CharField(max_length=255) #คนที่แจ้ง
     check_repair =models.TextField() #สาเหตุเครื่องเสีย
     repair = models.TextField() #สรุปการซ่อม

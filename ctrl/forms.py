@@ -1,7 +1,10 @@
 from os import stat
 from django import forms
 from django.forms import widgets
+from django.forms import fields
+from django.forms.models import ModelForm
 from django.forms.widgets import HiddenInput, Select
+from .models import models, options_std
 # class create_repair(forms.Form):
 #     id_lb =forms.CharField(max_length=255)
 #     subject = forms.CheckboxInput()
@@ -21,38 +24,33 @@ class opsForm(forms.Form):
         label='',
         label_suffix='   ',
         choices=text,
-        widget=forms.Select({'class':'form-select'}),
+        # widget=forms.Select(attrs={'class':'custom-select select-box'}),
     )
+    field.widget.attrs.update({'class':'form-control','style':'text-align:center;width:60px;height:28px;padding:0px 7px;font-size:15px;margin-top:-5px'})
     
 class repiarForm(forms.Form):
-    # fields  = {
-    #     'field1','field2','field3','field4','field5',
-    # }
-    # widgets={
-    #     'field1': forms.TextInput(attrs={'placeholder':'kuy'})
-    #     # 'field2': forms.CheckboxInput(attrs={'id':'lb_repair02',}),
-    #     # 'field3': forms.CheckboxInput(attrs={'id':'lb_repair03',}),
-    #     # 'field4': forms.CheckboxInput(attrs={'id':'lb_repair04',}),
-    #     # 'field5': forms.CheckboxInput(attrs={'id':'lb_repair05',}),
-    # }
     field1 = forms.BooleanField(
         required=False,
-        label='เปิดคอมพิวเตอร์มาแล้วขึ้นหน้าจอฟ้า',
+        label='บริการล้างสี + ดูดฝุ่น',
         initial=False,
         widget=forms.CheckboxInput(attrs={'id':'lb_repair01',})
     )
     field2 = forms.BooleanField(
         required=False,
-        label='หน้าจอคอมพิวเตอร์เปิดไม่ติด',
+        label='บริการเคลือบสีด้วย Quick Wax',
         initial=False,
-        widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
+        widget=forms.CheckboxInput(attrs={'id':'lb_repair01',})
     )
-    # field3 = forms.BooleanField(
-    #     required=False,
-    #     label='คอมพิวเตอร์มีเสียงร้องตอนเปิดเครื่อง',
-    #     initial=False,
-    #     widget=forms.CheckboxInput(attrs={'id':'lb_repair01'})
-    # )
+    field3 = forms.BooleanField(
+        required=False,
+        label='บริการเคลือบแก้ว',
+        initial=False,
+        widget=forms.CheckboxInput(attrs={'id':'lb_repair01',})
+    )
+
+
+
+
 
 class input_detail(forms.Form):
     textinput = forms.CharField()
@@ -63,3 +61,4 @@ class input_detail(forms.Form):
     # https://stackoverflow.com/questions/37170465/how-to-get-value-checkbox-on-modal-bootstrap
     # boolean Field   https://www.youtube.com/watch?v=C4P5fiAC7QA&ab_channel=DJanGO
     # git hub https://github.com/showkuay97/ctrlsystem.git
+    #https://stackoverflow.com/questions/45310054/passing-data-form-datatable-to-modal-django/45317822
