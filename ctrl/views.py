@@ -53,7 +53,7 @@ def create_repair(request,id):
         other_repair = request.POST['other_repair']
         # id_pc = request.POST['get_id_cmpt']
         # btn_id = request.POST['btnid']
-        if pc_repair == [] and divice_repair == [] and other_repair == '':
+        if pc_repair == [] and divice_repair == [] and other_repair.strip() =='':
             messages.error(request, 'กรุณาระบุอาการของคอมพิวเตอร์!')
             # return render(request,'repair.html',{'err':post_err})
             return redirect('/repair/%d'%id)
@@ -70,10 +70,11 @@ def create_repair(request,id):
             print(err_pc)
             # print("btn "+btn_id)
             print("id = "+str(id))
-            # date_re = datetime.now()
+            date_re = datetime.now()
             cmpt = repair_cmpt.objects.get(id=id)
             cmpt.detail_repair = err_pc
-            # cmpt.date_report = date_re.strftime("%d/%m/%Y")
+            cmpt.date_report = date_re.strftime("%d/%m/%Y  %H:%M:%S")
+            # print(date_re.strftime("%d/%m/%Y"))
             cmpt.save()
             return redirect('/pcstudent/')
     return redirect('/pcstudent/')

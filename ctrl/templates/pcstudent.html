@@ -37,14 +37,13 @@
                     <tbody>
                         {% for items in pcs %}
                         <tr>
-                            {% comment %} <td class="text-center">{{items.id}}</td> {% endcomment %}
                             <td class="text-center">{{items.No_cmpt}}</td>
-                            <td class="text-center"><img class="rounded mr-2" width="30" height="30" src="\static\assets\img\pc1.png" style="width: 35px;height: 35px;margin-right: 0px;margin-left: 0px;">
+                            <td class="text-center"><img class="rounded mr-2" width="30" height="30" src="{{items.img_cmpt}}" style="width: 35px;height: 35px;margin-right: 0px;margin-left: 0px;">
                             </td>
                             <td class="text-center">{{items.stat_cmpt}}</td>
                             <td class="text-center">{{items.detail_repair}}</td>
+                            <td class="text-center">{{items.date_report}}</td>
                             <td class="text-center">{{items.date_input}}</td>
-                            <td class="text-center">{{items.date_output}}</td>
                             <td style="width: 140px;">
                                     <a class="btn btn-warning"href="{% url 'repair' items.id %}" style="background-color: rgb(241,16,30);"><i
                                         class="fas fa-tools"></i>&nbsp; แจ้งซ่อม</a>
@@ -54,14 +53,13 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            {% comment %} <td class="text-center"><strong><br>ลำดับที่<br><br></strong></td> {% endcomment %}
                             <td class="text-center"><strong><br>เครื่องที่<br><br></strong></td>
                             <td class="text-center"><strong><br>รูปเครื่อง<br><br></strong></td>
                             <td class="text-center"><strong><br>สถานะ<br><br></strong></td>
                             <td class="text-center"><strong><br>อาการเครื่อง<br><br></strong></td>
                             <td class="text-center"><strong><br>วันที่แจ้งซ่อม<br><br></strong></td>
                             <td class="text-center"><strong><br>วันที่รับเรื่อง<br><br></strong></td>
-                            <td></td>
+
                         </tr>
                     </tfoot>
                 </table>
