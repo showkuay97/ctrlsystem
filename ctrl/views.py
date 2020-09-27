@@ -2,24 +2,44 @@ from django.http import request,HttpRequest
 from django.shortcuts import render ,redirect
 from django.urls.base import is_valid_path
 from .models import cmpt_detail,options_std,options_tcher,repair_cmpt,report
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,auth
 from django.http import HttpResponse
 from django import forms
 from django.http import HttpResponseRedirect
 from .forms import opsForm,repiarForm,input_detail,adminsForm
 from datetime import datetime
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # from .forms import create_repair
 
 
 # Create your views here.
+@login_required(login_url='/')
 def index(request):
-    comp = report.objects.all()
-    return render(request,'index.html',{'comps':comp})
+    
+    return render(request,'index.html',{})
 
 def Login(request):
+
     return render(request,'Login.html')
 
+def login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user =  auth.authenticate(username=username,password=password)
+    if user is not None:
+        auth.login(request,user)
+        return redirect('index')
+    else:
+        messages.error(request, 'ไม่พบผู้ใช้งานนี้!')
+        return redirect('Login')
+
+@login_required(login_url='/')
+def logout(request):
+    auth.logout(request)
+    return redirect('Login')
+
+@login_required(login_url='/')
 def pcstudent(request):
     pc = repair_cmpt.objects.all()
     f = opsForm()
@@ -41,7 +61,7 @@ def pcstudent(request):
                 'form':f,
             })
     return render(request,'pcstudent.html',{'form':f})
-
+@login_required(login_url='/')
 def create_repair(request,id):
     if request.method == 'POST':
         pc_repair = request.POST.getlist('check_repair')
@@ -70,13 +90,14 @@ def create_repair(request,id):
             date_re = datetime.now()
             cmpt = repair_cmpt.objects.get(id=id)
             cmpt.detail_repair = err_pc
+            cmpt.user_report = request.user.username
             cmpt.stat_cmpt ='กำลังดำเนินการ'
             cmpt.date_report = date_re.strftime("%d/%m/%Y  %H:%M:%S")
             # print(date_re.strftime("%d/%m/%Y"))
             cmpt.save()
             return redirect('/pcstudent/')
     return redirect('/pcstudent/')
-
+@login_required(login_url='/')
 def create_repairaj(request,id):
     if request.method == 'POST':
         pc_repair = request.POST.getlist('check_repair')
@@ -105,13 +126,14 @@ def create_repairaj(request,id):
             date_re = datetime.now()
             cmpt = repair_cmpt.objects.get(id=id)
             cmpt.detail_repair = err_pc
+            cmpt.user_report = request.user.username
             cmpt.stat_cmpt ='กำลังดำเนินการ'
             cmpt.date_report = date_re.strftime("%d/%m/%Y  %H:%M:%S")
             # print(date_re.strftime("%d/%m/%Y"))
             cmpt.save()
             return redirect('/pcteacher/')
     return redirect('/pcteacher/')
-
+@login_required(login_url='/')
 def pcteacher(request):
     pc = repair_cmpt.objects.all()
     f = repiarForm(request.POST)
@@ -132,7 +154,8 @@ def register(request):
 
 def Dashboard(request):
     return render(request,'Dashboard.html')
-    
+
+@login_required(login_url='/') 
 def admins(request):
     pc = repair_cmpt.objects.all()
     pc = repair_cmpt.objects.filter(stat_cmpt='กำลังดำเนินการ').order_by('date_report')
@@ -149,22 +172,26 @@ def tester(request,id):
         print(id)
 
     return redirect('/test/')
-    
+
+@login_required(login_url='/')
 def repair(request,id):
     ids = repair_cmpt.objects.get(id=id)
     print(id)
     return render(request,'repair.html',{'ids':ids,})
 
+@login_required(login_url='/')
 def repairaj(request,id):
     ids = repair_cmpt.objects.get(id=id)
     print(id)
     return render(request,'repairaj.html',{'ids':ids,})
 
+@login_required(login_url='/')
 def receive(request,id):
     ids = repair_cmpt.objects.get(id=id)
     print(id)
     return render(request,'receive.html',{'ids':ids,})
 
+@login_required(login_url='/')
 def pcreceive(request,id):
     if request.method == 'POST':
         pc_repair = request.POST.getlist('check_repair')
@@ -199,11 +226,13 @@ def pcreceive(request,id):
             return redirect('/admins/')
     return redirect('/admins/')
 
+@login_required(login_url='/')
 def send(request,id):
     ids = repair_cmpt.objects.get(id=id)
     print(id)
     return render(request,'send.html',{'ids':ids,})
 
+@login_required(login_url='/')
 def sendpc(request,id):
     if request.method == 'POST':
         pc_repair = request.POST.getlist('check_repair')
@@ -271,6 +300,7 @@ def sendpc(request,id):
             cmpt.date_report =''
             cmpt.date_input=''
             cmpt.check_repair =''
+            cmpt.user_report = ''
             cmpt.date_output = date_re.strftime("%d/%m/%Y  %H:%M:%S")
             # print(date_re.strftime("%d/%m/%Y"))
             cmpt.save()
@@ -278,6 +308,7 @@ def sendpc(request,id):
             reportdata.save()
             return redirect('/admins/')
     return redirect('/admins/')
+
 # def select(request):
 #     if request.method=='POST':
 #         results = request.POST['selections']

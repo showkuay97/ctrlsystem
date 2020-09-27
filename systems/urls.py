@@ -19,8 +19,8 @@ from django.urls import path
 from ctrl import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/',views.index),
-    path('',views.Login),  
+    path('index/',views.index,name="index"),
+    path('',views.Login,name="Login"),  
     path('pcstudent/',views.pcstudent,name="pcstudent"),
     path('pcteacher/',views.pcteacher,name="pcteacher"),
     path('register/',views.register),
@@ -30,7 +30,8 @@ urlpatterns = [
     path('create_repairaj/<int:id>',views.create_repairaj,name="create_repairaj"),
     path('pcreceive/<int:id>',views.pcreceive,name="pcreceive"),
     path('sendpc/<int:id>',views.sendpc,name="sendpc"),
-    path('test/',views.test),
+    path('login/',views.login),
+    path('logout/',views.logout),
     path('tester/<int:id>',views.tester,name="tester"),
     path('repair/<int:id>',views.repair,name="repair"),
     path('repairaj/<int:id>',views.repairaj,name="repairaj"),
