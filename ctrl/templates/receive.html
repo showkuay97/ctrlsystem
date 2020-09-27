@@ -1,0 +1,121 @@
+{% extends 'layout.html' %} {% block content%}
+<div class="card shadow mb-4">
+    <div class="card-header d-flex justify-content-center align-items-center">
+        <h4 class="text-primary justify-content-center font-weight-bold m-0">คอมพิวเตอร์ห้อง {{ids.class_room}} เครื่อง {{ids.No_cmpt}} {{ids.name_aj}}</h4>
+    </div>
+    <div class="card-body d-xl-flex justify-content-center align-items-center align-content-center justify-content-xl-center align-items-xl-center">
+        <div class="form-control col-lg-6" style="width:auto;height:auto;padding:20px 20px;">
+            <form action="{% url 'pcreceive' ids.id %}" method="POST">
+                {% csrf_token %}
+                <!--Start Modal-->
+                <div>
+                    {% if messages %}
+                    <ul class="messages" style="text-align:center">
+                        {% for message in messages %}
+                        <li {% if message.tags %} style="padding:5px 5px; margin:5px 5px; margin-top:-10px" class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <fieldset>
+                        <legend style="margin-top: 0px;padding: 0px 0px; padding-bottom: 10px;font-size: 18px;color: #5C5959;font-weight: bold;">ระบุสาเหตุเครื่องคอมพิวเตอร์</legend>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair" class="custom-control-input" /><label class="custom-control-label" for="check_repair">Windows เสีย</label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair1" class="custom-control-input" /><label class="custom-control-label" for="check_repair1">Ram เสีย</label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair2" class="custom-control-input" /><label class="custom-control-label" for="check_repair2">Power เสีย<br /></label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair3" class="custom-control-input" /><label class="custom-control-label" for="check_repair3">Board เสีย</label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair4" class="custom-control-input" /><label class="custom-control-label" for="check_repair4">Graphic Card เสีย</label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair5" class="custom-control-input" /><label class="custom-control-label" for="check_repair5">HDD เสีย</label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair6" class="custom-control-input" /><label class="custom-control-label" for="check_repair6">สาย Sata เสีย</label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair7" class="custom-control-input" /><label class="custom-control-label" for="check_repair7">SSD เสีย</label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair8" class="custom-control-input" /><label class="custom-control-label" for="check_repair8">สาย Power เสีย</label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair9" class="custom-control-input" /><label class="custom-control-label" for="check_repair9">License หมดอายุ</label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair10" class="custom-control-input" /><label class="custom-control-label" for="check_repair10">Adaptor เสีย<br /></label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair11" class="custom-control-input" /><label class="custom-control-label" for="check_repair11">สายจอเสีย</label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair12" class="custom-control-input" /><label class="custom-control-label" for="check_repair12">Internet มีปัญหา</label></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset>
+                        <legend style="margin-top: 0px;padding: 0px 0px; padding-bottom: 10px;font-size: 18px;color: #5C5959;font-weight: bold;">ระบุสาเหตุอุปกรณ์เครื่องคอมพิวเตอร์</legend>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair13" class="custom-control-input" /><label class="custom-control-label" for="check_repair13">คีย์บอร์ดเสีย</label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair14" class="custom-control-input" /><label class="custom-control-label" for="check_repair14">เมาส์เสีย</label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair15" class="custom-control-input" /><label class="custom-control-label" for="check_repair15">เมาส์หาย</label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair16" class="custom-control-input" /><label class="custom-control-label" for="check_repair16">คียบอร์ดหาย</label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair17" class="custom-control-input" /><label class="custom-control-label" for="check_repair17">โปรเจคเตอร์เสีย</label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-checkbox custom-control-inline"><input type="checkbox" name="check_repair" id="check_repair18" class="custom-control-input" /><label class="custom-control-label" for="check_repair18">โปรเจคเตอร์ไม่ชัด</label></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <!-- End: Bootstrap 4's Custom Radios & Checkboxes -->
+                <!-- Start: Bootstrap 4's Custom Radios & Checkboxes -->
+                <div>
+                    <fieldset>
+                        <legend style="margin-top: 0px;padding: 0px 0px; padding-bottom: 10px;font-size: 18px;color: #5C5959;font-weight: bold;">ปัญหาอื่นๆ</legend>
+                        <input type="text" name="other_repair" style="opacity: 0.5;width: 90%;" placeholder="ระบุปัญหา">
+                    </fieldset>
+                </div>
+                <div class="modal-footer justify-content-center" style="white-space: nowrap;margin-top:10px;margin-bottom:-10px;">
+                    <button type="submit" style="width:60%" class="btn btn-secondary">ส่งเรื่อง</button>
+                </div>
+                <!--Stop Modal-->
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}

@@ -28,10 +28,13 @@ urlpatterns = [
     path('admins/',views.admins),
     path('create_repair/<int:id>',views.create_repair,name="create_repair"),
     path('create_repairaj/<int:id>',views.create_repairaj,name="create_repairaj"),
+    path('pcreceive/<int:id>',views.pcreceive,name="pcreceive"),
     path('test/',views.test),
     path('tester/<int:id>',views.tester,name="tester"),
     path('repair/<int:id>',views.repair,name="repair"),
     path('repairaj/<int:id>',views.repairaj,name="repairaj"),
+    path('receive/<int:id>',views.receive,name="receive"),
+
 
 
     # path('test/',views.test),

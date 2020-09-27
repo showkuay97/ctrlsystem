@@ -1,170 +1,79 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=d334cada4df8e65f967fabedc1dec55b">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Inline">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css?h=18313f04cea0e078412a028c5361bd4e">
-    <link rel="stylesheet" href="/assets/css/styles.min.css?h=c520f68e9ed6778898ee696925f0f756">
-</head>
-
-<body id="page-top">
-    <div id="wrapper">
-        <nav class="navbar navbar-light align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
-            style="opacity: 1;">
-            <div class="container-fluid d-flex flex-column p-0">
-                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
-                    href="/Dashboard.html" style="font-family: 'Bungee Inline', cursive;">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="far fa-list-alt" style="font-size: 37px;"></i>
-                    </div>
-                    <div class="sidebar-brand-text mx-3"><span style="font-size: 20px;">Main Menu</span></div>
-                </a>
-                <hr class="sidebar-divider my-0">
-                <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link text-white" href="/index"
-                            style="font-size: 25px;font-family: Nunito, sans-serif;padding: 10px;"><i
-                                class="fas fa-home" style="font-size: 20px;"></i><span
-                                style="font-size: 20px;">หน้าหลัก</span></a><a class="nav-link text-white"
-                            href="/pcstudent" style="font-size: 25px;padding: 10px;"><i class="fas fa-desktop"
-                                style="font-size: 20px;"></i><span
-                                style="font-size: 20px;padding-right: 0px;">ห้องปฏิบัติการ</span></a><a
-                            class="nav-link text-white" href="/pcteacher" style="font-size: 25px;padding: 10px;"><i
-                                class="fas fa-laptop" style="font-size: 20px;"></i><span
-                                style="font-size: 20px;">ห้องพักครู</span></a><a class="nav-link text-white"
-                            href="/Dashboard" style="font-size: 25px;padding: 10px;"><i class="fas fa-table"
-                                style="font-size: 20px;"></i><span
-                                style="font-size: 20px;padding-left: 0px;">สรุปยอด</span></a>
-                        <a class="nav-link text-white" href="/regis.html" style="font-size: 25px;padding: 10px;"><i
-                                class="fas fa-user-circle" style="font-size: 20px;"></i><span
-                                style="font-size: 20px;">เพิ่มสมาชิก</span></a>
-                    </li>
-                </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
-                        id="sidebarToggle" type="button"></button></div>
-            </div>
-        </nav>
-        <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
-                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                    <div class="container-fluid">
-                        <h1 style="font-family: Acme, sans-serif;">System Controllers<br></h1>
-                        <form
-                            class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group">
-                                <div class="input-group-append"></div>
-                            </div>
-                        </form>
-                        <ul class="nav navbar-nav flex-nowrap ml-auto">
-                            <div class="d-none d-sm-block topbar-divider"></div>
-                            <li class="nav-item dropdown no-arrow" role="presentation">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
-                                        data-toggle="dropdown" aria-expanded="false" href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-gray-600 small">Username</span><img
-                                            class="border rounded-circle img-profile"
-                                            src="/assets/img/user.png?h=e22894f2c6b1efb51094e9936e0a433a"></a>
-                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
-                                        <a class="dropdown-item" role="presentation" href="#"><i
-                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a
-                                            class="dropdown-item" role="presentation" href="#"><i
-                                                class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
-                                        <a class="dropdown-item" role="presentation" href="#"><i
-                                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activitylog</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation"
-                                            href="#"><i
-                                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class="container-fluid">
-                    <h3 class="text-dark mb-4">แจ้งซ่อมเครื่องคอมพิวเตอร์</h3>
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container-fluid">
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-center text-primary m-0 font-weight-bold">เครื่องห้องปฏิบัติการ</p>
+                            <p class="text-center text-primary m-0 font-weight-bold">รายแจ้งซ่อมเครื่องคอมพิวเตอร์</p>
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label>ห้องปฏิบัติการ<select
-                                                class="form-control form-control-sm custom-select custom-select-sm"
-                                                style="width: 70px;margin-left: 20px;">
-                                                <option value="" selected="">201</option>
-                                                <option value="">202</option>
-                                                <option value="">203</option>
-                                                <option value="">204</option>
-                                                <option value="">205</option>
-                                                <option value="">206</option>
-                                                <option value="">207</option>
-                                                <option value="">208</option>
-                                            </select>&nbsp;</label></div>
+                            {% comment %} <div class="row">
+                <div class="col-md-12 text-nowrap">
+                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                        <form action="/admins/" method="POST">
+                            {% csrf_token %}
+                            <div class="row text-nowrap ">
+                                <div style="margin: 0px 10px; display:flex">
+                                    ห้องปฏิบัติการ&nbsp;&nbsp;&nbsp;{{form}}
                                 </div>
+                                <input type="submit" class="btn btn-secondary " style="margin-top:-5px;width: 60px;height:28px;padding:0px 0px;" value="เลือก">
                             </div>
+                        </form>
+                    </div>
+                </div>
+            </div> {% endcomment %}
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
                                 aria-describedby="dataTable_info">
-                                <table class="table table-hover dataTable my-0" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">เครื่องที่</th>
-                                            <th class="text-center">รูปเครื่อง</th>
-                                            <th class="text-center">อาการเครื่อง</th>
-                                            <th class="text-center">วันที่แจ้งซ่อม</th>
-                                            <th class="text-center">วันที่รับเครื่อง</th>
-                                            <th class="text-center">ผู้แจ้งซ่อม</th>
-                                            <th style="width: 180px;"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center"><img
-                                                    style="width: 35px;height: 35px;background-image: url(&quot;/assets/img/pc1.png?h=019bd2cf0d699742696c1e7e995e23d9&quot;);"
-                                                    src="/assets/img/pc1.png?h=019bd2cf0d699742696c1e7e995e23d9"></td>
-                                            <td class="text-center">พังซิวะ</td>
-                                            <td class="text-center">17/08/2563</td>
-                                            <td class="text-center">17/08/2563<br></td>
-                                            <td class="text-center">อ.กฤษณะ</td>
-                                            <td style="width: 170px;padding: 3px;padding-top: 4px;">
-                                                <div style="width: 180px;"><button
-                                                        class="btn btn-outline-warning active" data-toggle="modal"
-                                                        data-target="#exampleModal" type="button"
-                                                        style="background-color: rgb(61,241,16);padding-right: 5px;padding-left: 10px;"><i
-                                                            class="far fa-arrow-alt-circle-down"
-                                                            style="margin-right: -5px;margin-left: -5px;"></i>&nbsp;
-                                                        รับเรื่อง</button>
-                                                    <button class="btn btn-outline-warning active" data-toggle="modal"
-                                                        data-target="#exampleModal-1" type="button"
-                                                        style="background-color: rgb(241,16,30);margin-left: 5px;padding-right: 5px;padding-left: 10px;"><i
-                                                            class="far fa-arrow-alt-circle-up"
-                                                            style="margin-right: -5px;margin-left: -5px;"></i>&nbsp;
-                                                        ส่งเครื่อง</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td class="text-center"><strong><br>เครื่องที่<br><br></strong></td>
-                                            <td class="text-center"><strong><br>รูปเครื่อง<br></strong></td>
-                                            <td class="text-center"><strong><br>อาการเครื่อง<br><br></strong></td>
-                                            <td class="text-center"><strong><br>วันที่แจ้งซ่อม<br><br></strong></td>
-                                            <td class="text-center"><strong><br>วันที่รับเครื่อง<br><br></strong></td>
-                                            <td class="text-center"><strong><br>ผู้แจ้งซ่อม<br><br></strong></td>
-                                            <td></td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                                <table class="table dataTable my-0" id="dataTable">
+                    <thead>
+                        <tr>
+                            {% comment %} <th class="text-center">ลำดับที่</th> {% endcomment %}
+                            <th class="text-center">เครื่องที่</th>
+                            <th class="text-center">ห้อง</th>
+                            <th class="text-center">อาการเครื่อง</th>
+                            <th class="text-center">วันที่แจ้งซ่อม</th>
+                            <th class="text-center">ผู้แจ้งซ่อม</th>
+                            <th class="text-center">วันที่รับเรื่อง</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for items in pcs %}
+                        <tr>
+                            <td class="text-center">{{items.No_cmpt}}</td>
+                            <td class="text-center">{{items.class_room}}</td>
+                            <td class="text-center">{{items.detail_repair}}</td>
+                            <td class="text-center">{{items.date_report}}</td>
+                            <td class="text-center">{{items.user_report}}</td>
+                            <td class="text-center">{{items.date_input}}</td>
+                            <td style="width:180px">
+                                <div style="width:180px">
+                                {% if items.date_input == '' %}
+                                    <a class="btn btn-success" href="{% url 'receive' items.id %}" style="padding:5px"><i
+                                        class="far fa-arrow-alt-circle-down"></i>&nbsp; รับเรื่อง</a>
+                                {% else %}
+                                    <a class="btn btn-success disabled" href="{% url 'receive' items.id %}" style="padding:5px;"><i
+                                        class="far fa-arrow-alt-circle-down"></i>&nbsp; รับเรื่อง</a>
+                                {% endif %}
+                                    <a class="btn btn-primary" href="{% url 'repair' items.id %}" style="padding:5px"><i
+                                        class="far fa-arrow-alt-circle-up"></i>&nbsp; ส่งเครื่อง</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="text-center">เครื่องที่</th>
+                            <th class="text-center">ห้อง</th>
+                            <th class="text-center">อาการเครื่อง</th>
+                            <th class="text-center">วันที่แจ้งซ่อม</th>
+                            <th class="text-center">ผู้แจ้งซ่อม</th>
+                            <th class="text-center">วันที่รับเรื่อง</th>
+                            <th></th>
+
+                        </tr>
+                    </tfoot>
+                </table>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 align-self-center">
@@ -663,19 +572,4 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <footer class="bg-white sticky-footer">
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © ShowKuay</span></div>
-                </div>
-            </footer>
-        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="/assets/js/script.min.js?h=ea4047ad960e52f9d14909e223479a47"></script>
-</body>
-
-</html>
+{% endblock %}

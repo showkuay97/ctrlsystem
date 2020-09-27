@@ -29,6 +29,33 @@ class opsForm(forms.Form):
     )
     # field.widget.attrs.update({'class':'form-control','style':'text-align:center;width:60px;height:28px;padding:0px 7px;font-size:15px;margin-top:-5px'})
     
+class adminsForm(forms.Form):
+    text = [
+        ('201',201),
+        ('202',202),
+        ('203',203),
+        ('204',204),
+        ('205',205),
+        ('206',206),
+        ('207',207),
+        ('208',208),
+        ('103',103),
+        ('104',104),
+        ('105',105),
+        ('106',106),
+        ('ทะเบียน',"ทะเบียน"),
+        ('ประชาสัมพันธ์',"ประชาสัมพันธ์"),
+        ('CareerHub',"CareerHub"),
+        ('การเงิน',"การเงิน"),
+    ]
+    field = forms.ChoiceField(
+        required=False,
+        label='',
+        label_suffix='   ',
+        choices=text,
+        widget=forms.Select(attrs={'class':'form-control','style':'text-align:center;width:110px;height:28px;padding:0px 7px;font-size:15px;margin-top:-5px'}),
+    )
+
 class repiarForm(forms.Form):
     text = [
         ('103',103),
@@ -47,7 +74,6 @@ class repiarForm(forms.Form):
         choices=text,
         widget=forms.Select(attrs={'class':'form-control','style':'text-align:center;width:110px;height:28px;padding:0px 7px;font-size:15px;margin-top:-5px'}),
     )
-
 
 class input_detail(forms.Form):
     textinput = forms.CharField()
