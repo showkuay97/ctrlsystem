@@ -29,15 +29,16 @@ urlpatterns = [
     path('create_repair/<int:id>',views.create_repair,name="create_repair"),
     path('create_repairaj/<int:id>',views.create_repairaj,name="create_repairaj"),
     path('pcreceive/<int:id>',views.pcreceive,name="pcreceive"),
+    path('sendpc/<int:id>',views.sendpc,name="sendpc"),
     path('test/',views.test),
     path('tester/<int:id>',views.tester,name="tester"),
     path('repair/<int:id>',views.repair,name="repair"),
     path('repairaj/<int:id>',views.repairaj,name="repairaj"),
     path('receive/<int:id>',views.receive,name="receive"),
+    path('send/<int:id>',views.send,name="send"),
 
 
 
-    # path('test/',views.test),
 
 
 

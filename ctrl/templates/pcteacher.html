@@ -45,8 +45,13 @@
                             <td class="text-center">{{items.date_report}}</td>
                             <td class="text-center">{{items.date_input}}</td>
                             <td style="width: 140px;">
-                                    <a class="btn btn-warning"href="{% url 'repairaj' items.id %}" style="background-color: rgb(241,16,30);"><i
+                                   {% if  items.stat_cmpt == "กำลังดำเนินการ"%}
+                                    <a class="btn btn-secondary disabled"href="{% url 'repairaj' items.id %}"><i
                                         class="fas fa-tools"></i>&nbsp; แจ้งซ่อม</a>
+                                    {% else %}
+                                    <a class="btn btn-warning "href="{% url 'repairaj' items.id %}" style="background-color: rgb(241,16,30);"><i
+                                        class="fas fa-tools"></i>&nbsp; แจ้งซ่อม</a>
+                                    {% endif %}
                             </td>
                         </tr>
                         {% endfor %}

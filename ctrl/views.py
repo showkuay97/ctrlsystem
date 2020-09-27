@@ -135,18 +135,8 @@ def Dashboard(request):
     
 def admins(request):
     pc = repair_cmpt.objects.all()
-    f = adminsForm(request.POST)
-    pc = repair_cmpt.objects.filter(stat_cmpt='กำลังดำเนินการ').order_by('id')
-    # if request.method == 'POST':
-    #     if f.is_valid():
-    #         res = f.cleaned_data['field']
-    #         print(res)
-    #         return render(request,'pcteacher.html',{
-    #             'pcs':pc,
-    #             'select':res,
-    #             'form':f,
-    #         })
-    return render(request,'admin.html',{'form':f,'pcs':pc,})
+    pc = repair_cmpt.objects.filter(stat_cmpt='กำลังดำเนินการ').order_by('date_report')
+    return render(request,'admin.html',{'pcs':pc,})
 
 def test(request):
     pc = options_std.objects.all()
@@ -208,6 +198,86 @@ def pcreceive(request,id):
             cmpt.save()
             return redirect('/admins/')
     return redirect('/admins/')
+
+def send(request,id):
+    ids = repair_cmpt.objects.get(id=id)
+    print(id)
+    return render(request,'send.html',{'ids':ids,})
+
+def sendpc(request,id):
+    if request.method == 'POST':
+        pc_repair = request.POST.getlist('check_repair')
+        divice_repair = request.POST.getlist('de_check_repair')
+        other_repair = request.POST['other_repair']
+        # id_pc = request.POST['get_id_cmpt']
+        # btn_id = request.POST['btnid']
+        if pc_repair == [] and divice_repair == [] and other_repair.strip() =='':
+            messages.error(request, 'กรุณาระบุอาการของคอมพิวเตอร์!')
+            # return render(request,'repair.html',{'err':post_err})
+            return redirect('/send/%d'%id)
+        else:
+            err_pc = ""
+            for i in pc_repair:
+                err_pc+=i+","
+            
+            for j in divice_repair:
+                err_pc+=j+","
+            if other_repair.strip() != ' ':
+                err_pc+=other_repair
+            print(err_pc)
+            # print("btn "+btn_id)
+            print("id = "+str(id))
+
+            reportdata = cmpt_detail.objects.get(id=id)
+            for item in pc_repair:
+                if item =="ลง Windows ใหม่":
+                    reportdata.count_windows +=1
+                elif item == "เปลี่ยน Ram ใหม่":
+                    reportdata.count_ram +=1
+                elif item == "เปลี่ยน PSUใหม่":
+                    reportdata.count_psu +=1
+                # elif item == "เปลี่ยน Board ใหม่":
+                    # reportdata.count_windows +=1
+                elif item == "เปลี่ยน Garphic Card ใหม่":
+                    reportdata.count_gpu +=1
+                elif item == "เปลี่ยน HDD ใหม่":
+                    reportdata.count_hdd +=1
+                elif item == "เปลี่ยน SSD ใหม่":
+                    reportdata.count_ssd +=1
+                elif item == "เปลี่ยนสาย Sata ใหม่":
+                    reportdata.count_power +=1
+                elif item == "เปลี่ยนสาย PSU ใหม่":
+                    reportdata.count_power +=1
+                elif item == "เปลี่ยน Adaptor ใหม่":
+                    reportdata.count_windows +=1
+                elif item == "เปลี่ยนสายจอใหม่":
+                    reportdata.count_power +=1
+                elif item == "ลง License ใหม่":
+                    reportdata.count_lic +=1
+                elif item == "ลง Program ใหม่":
+                    reportdata.count_program +=1
+                elif item == "เข้าหัว Lan ใหม่":
+                    reportdata.count_internet +=1
+                elif item == "เปลี่ยนคีย์บอร์ดใหม่":
+                    reportdata.count_keyboard +=1
+                elif item == "เปลี่ยนเมาส์ใหม่":
+                    reportdata.count_mouse +=1
+
+            date_re = datetime.now()
+            cmpt = repair_cmpt.objects.get(id=id)
+            cmpt.repair = err_pc
+            cmpt.stat_cmpt='ปกติ'
+            cmpt.detail_repair = ''
+            cmpt.date_report =''
+            cmpt.date_input=''
+            cmpt.check_repair =''
+            cmpt.date_output = date_re.strftime("%d/%m/%Y  %H:%M:%S")
+            # print(date_re.strftime("%d/%m/%Y"))
+            cmpt.save()
+            reportdata.count_all+=1;
+            reportdata.save()
+            return redirect('/admins/')
+    return redirect('/admins/')
 # def select(request):
 #     if request.method=='POST':
 #         results = request.POST['selections']
@@ -220,9 +290,7 @@ def pcreceive(request,id):
 #             add_cmpt = repair_cmpt.objects.create(
 #                 class_room = str(i),
 #                 slug_repair = str(i),
-#                 No_cmpt = str(j),
-#                 img_cmpt = str('/static/assets/img/pc1.png'),
-#                 stat_cmpt = str("ปกติ"),
+#                 No_cmpt = str(j)
 #             )
 #     add_cmpt.save()
 #     return render(request,'index.html',{'ss':"Success"})
