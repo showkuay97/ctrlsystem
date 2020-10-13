@@ -22,7 +22,7 @@
                 </div>
             </div> {% endcomment %}
             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                <table class="table dataTable my-0" id="dataTable">
+                <table class="table dataTable my-0" id="tabledata">
                     <thead>
                         <tr>
                             {% comment %}
@@ -78,6 +78,15 @@
         </div>
     </div>
 </div>
-            <div style="margin:15px;">
-            </div>
-            {% endblock %}
+<div style="margin:15px;">
+</div>
+{% comment %} <script>
+    var autoLoad = setInterval(
+        function() {
+            var url = window.location.search;
+            $('#tabledata').load('/admins/').fadeIn("slow");
+        }, 5000);
+</script> {% endcomment %}
+
+
+{% endblock %}

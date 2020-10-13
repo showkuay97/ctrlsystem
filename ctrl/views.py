@@ -149,11 +149,11 @@ def pcteacher(request):
             })
     return render(request,'pcteacher.html',{'form':f,})
 
-def register(request):
-    return render(request,'regis.html')
+# def register(request):
+#     return render(request,'regis.html')
 
-def Dashboard(request):
-    return render(request,'Dashboard.html')
+# def Dashboard(request):
+#     return render(request,'Dashboard.html')
 
 @login_required(login_url='/') 
 def admins(request):
@@ -183,7 +183,7 @@ def repair(request,id):
 def repairaj(request,id):
     ids = repair_cmpt.objects.get(id=id)
     print(id)
-    return render(request,'repairaj.html',{'ids':ids,})
+    return render(request,'repairaj.html',{'ids':ids,}) 
 
 @login_required(login_url='/')
 def receive(request,id):
