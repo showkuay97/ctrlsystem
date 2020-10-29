@@ -1,3 +1,3 @@
-setTimeout(function() {
-    $.get("{% url 'pcstudent' %}") // Do something after 5 seconds
-}, 2000);
+// setTimeout(function() {
+//     $.load("{% url 'admins' %}") // Do something after 5 seconds
+// }, 10000);
